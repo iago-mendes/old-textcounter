@@ -8,8 +8,8 @@ function Routes()
 {
     return (
         <>
-            <MenuTabs />
             <BrowserRouter>
+                <MenuTabs />
                 <Route exact path="/" component={() => <p>Home</p>} />
                 <Route path="/about" component={() => <p>About</p>} />
             </BrowserRouter>
