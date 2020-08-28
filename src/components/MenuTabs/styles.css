@@ -1,0 +1,31 @@
+#tabsContainer
+{
+    height: 7.5rem;
+    width: 100vw;
+    background-color: var(--primary);
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#tabsContainer .logo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#tabsContainer .logo img
+{
+    height: 5rem;
+    width: 5rem;
+}
+
+#tabsContainer .logo span
+{
+    color: var(--text);
+}
