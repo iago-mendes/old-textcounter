@@ -8,6 +8,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+
+    box-shadow: 0rem 0.5rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 
 #tabsContainer .logo
@@ -28,4 +30,6 @@
 #tabsContainer .logo span
 {
     color: var(--text);
+    font-family: 'Permanent Marker';
+    font-size: 3rem;
 }
