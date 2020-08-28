@@ -1,9 +1,13 @@
 import React from 'react'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 function Routes()
 {
     return (
-        <p>Hello, world!</p>
+        <BrowserRouter>
+            <Route exact path="/" component={() => <p>Home</p>} />
+            <Route path="/about" component={() => <p>About</p>} />
+        </BrowserRouter>
     )
 }
 
