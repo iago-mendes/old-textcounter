@@ -1,0 +1,29 @@
+#homeContainer .textarea
+{
+    background-color: var(--primary);
+    border-color: var(--textarea);
+    border-radius: 2.5rem;
+    border-style: solid;
+    box-shadow: inset 0px 0px 5px rgba(0,0,0,1);
+    transition: border-color 1s;
+
+    padding: 2rem;
+    height: 70vh;
+    width: 80vw;
+
+    color: var(--text);
+    font-family: Roboto;
+    font-size: 1.5rem;
+}
+
+#homeContainer .textarea:focus
+{
+    border-color: var(--textarea-focus);
+    box-shadow: 0px 0px 5px rgba(0,0,0,1);
+}
+
+/* textarea::-webkit-resizer
+{
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+} */
