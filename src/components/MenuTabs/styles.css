@@ -19,6 +19,9 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    text-decoration: none;
+
+    width: 30rem;
 }
 
 #tabsContainer .logo img
@@ -32,5 +35,44 @@
     color: var(--text);
     font-family: 'Permanent Marker';
     font-size: 3rem;
+}
+
+#tabsContainer .buttons
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 20rem;
+}
+
+#tabsContainer .buttons .about
+{
+    width: 10rem;
+    height: 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-color: var(--text);
+    border-style: solid;
+    border-width: 0.1rem;
+    border-radius: 2.5rem;
+
     text-decoration: none;
+    color: var(--text);
+    transition: 0.5s;
+}
+
+#tabsContainer .buttons .about:hover
+{
+    background-color: var(--text);
+    color: var(--primary);
+}
+
+#tabsContainer .buttons .about span
+{
+    font-family: Ubuntu;
+    font-size: 2rem;
 }

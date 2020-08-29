@@ -8863,6 +8863,11 @@ react-scripts@3.4.3:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-theme-toggle-button@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-theme-toggle-button/-/react-theme-toggle-button-1.1.0.tgz#f869f06791ac96af722232c01577a47c184c30d8"
+  integrity sha512-adOj+y3KsXDsPo5sZ64LALke/4Vs4NDw3DSs4sNMMDlVE/BFbL7jqqEtzghUZEq28XwC6xHVQK5QoF85nFXFcw==
+
 react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

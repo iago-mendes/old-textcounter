@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import ToggleButton from 'react-theme-toggle-button'
 
 import logoDark from '../../assets/logo-dark.svg'
 
@@ -14,9 +15,7 @@ function MenuTabs()
                 <span>Text Counter</span>
             </Link>
             <div className="buttons">
-                <button className="theme">
-                    <span>theme button</span>
-                </button>
+                <ToggleButton isDark={false} onChange={() => {}} />
                 <Link to="/about" className="about">
                     <span>About</span>
                 </Link>
