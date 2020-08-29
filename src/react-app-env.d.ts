@@ -1,2 +1,2 @@
 /// <reference types="react-scripts" />
-declare module 'react-theme-toggle-button'
+declare module 'react-input-switch'
