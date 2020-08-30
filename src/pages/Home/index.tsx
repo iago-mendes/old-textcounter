@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FiCopy, FiMenu } from 'react-icons/fi'
 
 import './styles.css'
+import Options from '../../components/OptionsModal'
 
 function Home()
 {
+    const [isOptionsOpen, setIsOptionsOpen] = useState(false)
+
     return (
         <div id="homeContainer">
+            <Options isOpen={isOptionsOpen} setIsOpen={setIsOptionsOpen} />
             <div className="info">
                 <span className="showInfo">Words: {500}</span>
                 <span className="showInfo">Characters: {2000}</span>
@@ -14,7 +18,11 @@ function Home()
                     <button title="Copy text" className="copy">
                         <FiCopy />
                     </button>
-                    <button title="See options" className="options">
+                    <button
+                        title="See options"
+                        onClick={() => setIsOptionsOpen(!isOptionsOpen)}
+                        className="options"
+                    >
                         <FiMenu />
                     </button>
                 </div>
