@@ -1,0 +1,124 @@
+#optionsContainer .options
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#optionsContainer .options label
+{
+    font-family: Ubuntu;
+    color: var(--text);
+    font-size: 2.5rem;
+}
+
+#optionsContainer .options ul
+{
+    margin-top: 1rem;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#optionsContainer .options li
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#optionsContainer .options li input
+{
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#optionsContainer .options li input:hover
+{
+    transform: scale(1.2);
+}
+
+#optionsContainer .options li span
+{
+    font-family: Roboto;
+    color: var(--text);
+    font-size: 1.5rem;
+}
+
+#optionsContainer .buttons
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#optionsContainer .buttons button
+{
+    height: 5rem;
+    width: 11rem;
+    border: none;
+    border-radius: 2rem;
+
+    background-color: var(--primary);
+    color: var(--secondary-strong);
+    font-family: Ubuntu;
+    font-size: 2.5rem;
+
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#optionsContainer .buttons button:hover
+{
+    background-color: var(--secondary-strong);
+    color: var(--primary);
+}
+
+/* #optionsContainer .options li .checkboxContainer
+{
+    display: block;
+    position: relative;
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+#optionsContainer .options li .checkboxContainer input
+{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+#optionsContainer .options li .checkboxContainer span
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+
+    border-color: var(--text);
+    border-width: 1px;
+    border-style: solid;
+}
+
+#optionsContainer .options li .checkboxContainer:hover input ~ span
+{}
+
+#optionsContainer .options li .checkboxContainer input:checked ~ span
+{
+    background-color: var(--textarea);
+} */
