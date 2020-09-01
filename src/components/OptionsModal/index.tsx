@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import Modal from 'react-modal'
 
 import './styles.css'
+import {ShowInfo} from '../../pages/Home/index'
 
 interface OptionsParams
 {
     isOpen: boolean
     setIsOpen: Function
+    showInfo: ShowInfo
+    setShowInfo: Function
 }
 
-const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen}) =>
+const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowInfo}) =>
 {
+    const [tmpShowInfo, setTmpShowInfo] = useState<ShowInfo>(showInfo)
+
+    function handleShowInfoChange(e: ChangeEvent<HTMLInputElement>)
+    {
+        const {name, value} = e.target
+        var tmp = tmpShowInfo
+
+        if (name === 'words') tmp['words'] = Boolean(value)
+        if (name === 'characters') tmp['characters'] = Boolean(value)
+        if (name === 'lines') tmp['lines'] = Boolean(value)
+        if (name === 'paragraphs') tmp['paragraphs'] = Boolean(value)
+        if (name === 'letters') tmp['letters'] = Boolean(value)
+
+        console.log(tmp)
+        setTmpShowInfo(tmp)
+    }
+
     return (
         <Modal
             isOpen={isOpen}
@@ -47,23 +67,53 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen}) =>
                             <input type="checkbox" onChange={() => {}}  name="words" id="words"/>
                             <span />
                         </div> */}
-                        <input type="checkbox" name="words" id="words"/>
+                        <input
+                            type="checkbox"
+                            defaultChecked={tmpShowInfo.words}
+                            onChange={handleShowInfoChange}
+                            name="words" 
+                            id="words"
+                        />
                         <span>Number of words</span>
                     </li>
                     <li>
-                        <input type="checkbox" name="characters" id="characters"/>
+                        <input
+                            type="checkbox"
+                            defaultChecked={tmpShowInfo.characters}
+                            onChange={handleShowInfoChange}
+                            name="characters"
+                            id="characters"
+                        />
                         <span>Number of characters</span>
                     </li>
                     <li>
-                        <input type="checkbox" name="lines" id="lines"/>
+                        <input
+                            type="checkbox"
+                            defaultChecked={tmpShowInfo.lines}
+                            onChange={handleShowInfoChange}
+                            name="lines"
+                            id="lines"
+                        />
                         <span>Number of lines</span>
                     </li>
                     <li>
-                        <input type="checkbox" name="paragraphs" id="paragraphs"/>
+                        <input
+                            type="checkbox"
+                            defaultChecked={tmpShowInfo.paragraphs}
+                            onChange={handleShowInfoChange}
+                            name="paragraphs"
+                            id="paragraphs"
+                        />
                         <span>Number of paragraphs</span>
                     </li>
                     <li>
-                        <input type="checkbox" name="letters" id="letters"/>
+                        <input
+                            type="checkbox"
+                            checked={tmpShowInfo.letters}
+                            onChange={handleShowInfoChange}
+                            name="letters"
+                            id="letters"
+                        />
                         <span>Letter density</span>
                     </li>
                 </ul>
