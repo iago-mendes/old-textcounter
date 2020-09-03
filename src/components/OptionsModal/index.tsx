@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, ChangeEvent, useEffect } from 'react'
 import Modal from 'react-modal'
 
 import './styles.css'
@@ -31,21 +31,30 @@ interface OptionsParams
 
 const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowInfo}) =>
 {
-    const [tmpShowInfo, setTmpShowInfo] = useState<ShowInfo>(showInfo)
+    var tmpShowInfo: ShowInfo =
+    {
+        words: showInfo.words,
+        characters: showInfo.characters,
+        lines: showInfo.lines,
+        paragraphs: showInfo.paragraphs,
+        letters: showInfo.letters
+    }
 
     function handleShowInfoChange(e: ChangeEvent<HTMLInputElement>)
     {
         const {name} = e.target
-        var tmp = tmpShowInfo
 
-        if (name === 'words') tmp['words'] = !tmpShowInfo.words
-        if (name === 'characters') tmp['characters'] = !tmpShowInfo.characters
-        if (name === 'lines') tmp['lines'] = !tmpShowInfo.lines
-        if (name === 'paragraphs') tmp['paragraphs'] = !tmpShowInfo.paragraphs
-        if (name === 'letters') tmp['letters'] = !tmpShowInfo.letters
+        if (name === 'words') tmpShowInfo['words'] = !tmpShowInfo.words
+        if (name === 'characters') tmpShowInfo['characters'] = !tmpShowInfo.characters
+        if (name === 'lines') tmpShowInfo['lines'] = !tmpShowInfo.lines
+        if (name === 'paragraphs') tmpShowInfo['paragraphs'] = !tmpShowInfo.paragraphs
+        if (name === 'letters') tmpShowInfo['letters'] = !tmpShowInfo.letters
+    }
 
-        console.log(tmp)
-        setTmpShowInfo(tmp)
+    function handleApplyChanges()
+    {
+        setShowInfo(tmpShowInfo)
+        setIsOpen(false)
     }
 
     return (
@@ -149,10 +158,10 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                 </ul>
             </div>
             <div className="buttons">
-                <button onClick={() => setIsOpen(!isOpen)}>
+                <button onClick={() => setIsOpen(false)}>
                     Close
                 </button>
-                <button onClick={() => setIsOpen(!isOpen)}>
+                <button onClick={handleApplyChanges}>
                     Apply
                 </button>
             </div>
