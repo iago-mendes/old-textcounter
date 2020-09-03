@@ -35,14 +35,14 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
 
     function handleShowInfoChange(e: ChangeEvent<HTMLInputElement>)
     {
-        const {name, value} = e.target
+        const {name} = e.target
         var tmp = tmpShowInfo
 
-        if (name === 'words') tmp['words'] = Boolean(value)
-        if (name === 'characters') tmp['characters'] = Boolean(value)
-        if (name === 'lines') tmp['lines'] = Boolean(value)
-        if (name === 'paragraphs') tmp['paragraphs'] = Boolean(value)
-        if (name === 'letters') tmp['letters'] = Boolean(value)
+        if (name === 'words') tmp['words'] = !tmpShowInfo.words
+        if (name === 'characters') tmp['characters'] = !tmpShowInfo.characters
+        if (name === 'lines') tmp['lines'] = !tmpShowInfo.lines
+        if (name === 'paragraphs') tmp['paragraphs'] = !tmpShowInfo.paragraphs
+        if (name === 'letters') tmp['letters'] = !tmpShowInfo.letters
 
         console.log(tmp)
         setTmpShowInfo(tmp)
@@ -126,7 +126,7 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                     <li>
                         <input
                             type="checkbox"
-                            checked={tmpShowInfo.letters}
+                            defaultChecked={tmpShowInfo.letters}
                             onChange={handleShowInfoChange}
                             name="letters"
                             id="letters"
