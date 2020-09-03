@@ -2,7 +2,24 @@ import React, { useState, ChangeEvent } from 'react'
 import Modal from 'react-modal'
 
 import './styles.css'
-import {ShowInfo} from '../../pages/Home/index'
+
+export interface ShowInfo
+{
+    words: boolean
+    characters: boolean
+    lines: boolean
+    paragraphs: boolean
+    letters: boolean
+}
+
+export const defaultShowInfo =
+{
+    words: true,
+    characters: true,
+    lines: false,
+    paragraphs: false,
+    letters: false
+}
 
 interface OptionsParams
 {

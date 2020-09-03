@@ -2,25 +2,7 @@ import React, { useState } from 'react'
 import { FiCopy, FiMenu } from 'react-icons/fi'
 
 import './styles.css'
-import Options from '../../components/OptionsModal'
-
-export interface ShowInfo
-{
-    words: boolean
-    characters: boolean
-    lines: boolean
-    paragraphs: boolean
-    letters: boolean
-}
-
-const defaultShowInfo =
-{
-    words: true,
-    characters: true,
-    lines: false,
-    paragraphs: false,
-    letters: false
-}
+import Options, {ShowInfo, defaultShowInfo} from '../../components/OptionsModal'
 
 function Home()
 {
