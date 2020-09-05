@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, useEffect } from 'react'
+import React, { ChangeEvent } from 'react'
 import Modal from 'react-modal'
 
 import './styles.css'
@@ -7,7 +7,6 @@ export interface ShowInfo
 {
     words: boolean
     characters: boolean
-    lines: boolean
     paragraphs: boolean
     letters: boolean
 }
@@ -16,7 +15,6 @@ export const defaultShowInfo =
 {
     words: true,
     characters: true,
-    lines: false,
     paragraphs: false,
     letters: false
 }
@@ -35,7 +33,6 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
     {
         words: showInfo.words,
         characters: showInfo.characters,
-        lines: showInfo.lines,
         paragraphs: showInfo.paragraphs,
         letters: showInfo.letters
     }
@@ -46,7 +43,6 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
 
         if (name === 'words') tmpShowInfo['words'] = !tmpShowInfo.words
         if (name === 'characters') tmpShowInfo['characters'] = !tmpShowInfo.characters
-        if (name === 'lines') tmpShowInfo['lines'] = !tmpShowInfo.lines
         if (name === 'paragraphs') tmpShowInfo['paragraphs'] = !tmpShowInfo.paragraphs
         if (name === 'letters') tmpShowInfo['letters'] = !tmpShowInfo.letters
     }
@@ -111,16 +107,6 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                             id="characters"
                         />
                         <span>Number of characters</span>
-                    </li>
-                    <li>
-                        <input
-                            type="checkbox"
-                            defaultChecked={tmpShowInfo.lines}
-                            onChange={handleShowInfoChange}
-                            name="lines"
-                            id="lines"
-                        />
-                        <span>Number of lines</span>
                     </li>
                     <li>
                         <input

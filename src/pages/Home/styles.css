@@ -9,19 +9,28 @@
     gap: 2rem;
 }
 
+#homeContainer .infoButtonsContainer
+{
+    width: 80vw;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
 #homeContainer .info
 {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
-        "words characters buttons"
-        "lines paragraphs letters"
+        "words characters"
+        "paragraphs letters"
     ;
-
-    width: 80vw;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    
+    width: 50vw;
 }
 
 #homeContainer .info .showInfo
@@ -29,67 +38,16 @@
     font-family: Ubuntu;
     font-size: 2rem;
     color: var(--text);
-
-    display: flex;
-    align-items: center;
-}
-
-#homeContainer .info .buttons
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-}
-
-#homeContainer .info .buttons .copy
-{
-    background: none;
-    border: none;
-    color: var(--text);
-    font-size: 2.5rem;
-
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-#homeContainer .info .buttons .copy:hover
-{
-    transform: scale(1.2);
-}
-
-#homeContainer .info .buttons .options
-{
-    background: none;
-    border-color: var(--text);
-    border-radius: 2rem;
-    border-style: solid;
-
-    width: 7rem;
-    height: 3.5rem;
-    margin-bottom: 0.5rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
     
-    cursor: pointer;
-    color: var(--text);
-    font-size: 2.5rem;
-    transition: background-color 0.5s, color 0.5s;
-}
-
-#homeContainer .info .buttons .options:hover
-{
-    background-color: var(--text);
-    color: var(--primary);
+    display: flex;
+    align-items: center;
 }
 
 #homeContainer .info .lettersContainer
 {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
 #homeContainer .info .lettersContainer .letters
@@ -112,6 +70,59 @@
 }
 
 #homeContainer .info .letters:hover
+{
+    background-color: var(--text);
+    color: var(--primary);
+}
+
+#homeContainer .buttons
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 15vw;
+}
+
+#homeContainer .buttons .copy
+{
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 2.5rem;
+
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#homeContainer .buttons .copy:hover
+{
+    transform: scale(1.2);
+}
+
+#homeContainer .buttons .options
+{
+    background: none;
+    border-color: var(--text);
+    border-radius: 2rem;
+    border-style: solid;
+
+    width: 7rem;
+    height: 3.5rem;
+    margin-bottom: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    color: var(--text);
+    font-size: 2.5rem;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#homeContainer .buttons .options:hover
 {
     background-color: var(--text);
     color: var(--primary);

@@ -27,9 +27,15 @@ function Home()
     return (
         <div id="homeContainer">
             <Options isOpen={isOptionsOpen} setIsOpen={setIsOptionsOpen} showInfo={showInfo} setShowInfo={setShowInfo} />
-            <div className="info">
-                {showInfo.words && <span className="showInfo">Words: {500}</span>}
-                {showInfo.characters && <span className="showInfo">Characters: {text.length}</span>}
+            <div className="infoButtonsContainer">
+                <div className="info">
+                    {showInfo.words && <span className="showInfo">Words: {500}</span>}
+                    {showInfo.characters && <span className="showInfo">Characters: {text.length}</span>}
+                    {showInfo.paragraphs && <span className="showInfo">Paragraphs: {25}</span>}
+                    {showInfo.letters && <div className="lettersContainer">
+                        <button title="See letter density" className="letters">Letter Density</button>
+                    </div>}
+                </div>
                 <div className="buttons">
                     <button title="Copy text" className="copy">
                         <FiCopy />
@@ -42,11 +48,6 @@ function Home()
                         <FiMenu />
                     </button>
                 </div>
-                {showInfo.lines && <span className="showInfo">Lines: {100}</span>}
-                {showInfo.paragraphs && <span className="showInfo">Paragraphs: {25}</span>}
-                {showInfo.letters && <div className="lettersContainer">
-                    <button title="See letter density" className="letters">Letter Density</button>
-                </div>}
             </div>
             <textarea onChange={handleTextChange} name="textarea" className="textarea"></textarea>
         </div>
