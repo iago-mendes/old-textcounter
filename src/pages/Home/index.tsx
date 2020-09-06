@@ -19,8 +19,8 @@ function Home()
 
     useEffect(() =>
     {
-        const getWords = text.length === 0 ? [] : text.replace('\n', ' ').split(' ').filter(item => {return item != ''})
-        const getParagraphs = text.split('\n').filter(item => {return item != ''})
+        const getWords = text.length === 0 ? [] : text.replace('\n', ' ').split(' ').filter(item => {return item !== ''})
+        const getParagraphs = text.split('\n').filter(item => {return item !== ''})
         const tmpInfo =
         {
             words: getWords.length,

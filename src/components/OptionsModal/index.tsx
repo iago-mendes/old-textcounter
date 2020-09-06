@@ -3,6 +3,8 @@ import Modal from 'react-modal'
 
 import './styles.css'
 
+Modal.setAppElement('#root')
+
 export interface ShowInfo
 {
     words: boolean
