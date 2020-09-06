@@ -37,6 +37,16 @@ function Home()
         setText(value)
     }
 
+    function handleCopyText()
+    {
+        document.addEventListener('copy', (e: ClipboardEvent) =>
+        {
+            e.clipboardData?.setData('text/plain', text)
+            e.preventDefault()
+        })
+        document.execCommand('copy')
+    }
+
     return (
         <div id="homeContainer">
             <Options isOpen={isOptionsOpen} setIsOpen={setIsOptionsOpen} showInfo={showInfo} setShowInfo={setShowInfo} />
@@ -50,7 +60,7 @@ function Home()
                     </div>}
                 </div>
                 <div className="buttons">
-                    <button title="Copy text" className="copy">
+                    <button title="Copy text" onClick={handleCopyText} className="copy">
                         <FiCopy />
                     </button>
                     <button
@@ -62,7 +72,7 @@ function Home()
                     </button>
                 </div>
             </div>
-            <textarea onChange={handleTextChange} name="textarea" className="textarea"></textarea>
+            <textarea onChange={handleTextChange} name="textarea" className="textarea" ></textarea>
         </div>
     )
 }
