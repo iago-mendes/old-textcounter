@@ -18,7 +18,16 @@ function Home()
         paragraphs: 0
     })
 
-    useEffect(() =>
+    useEffect(() => // collect saved text
+    {
+        if (features.save)
+        {
+            const tmp = String(localStorage.getItem('@text-counter/text'))
+            setText(tmp)
+        }
+    }, [])
+
+    useEffect(() => // update text
     {
         const getWords = text.length === 0 ? [] : text.replace('\n', ' ').split(' ').filter(item => {return item !== ''})
         const getParagraphs = text.split('\n').filter(item => {return item !== ''})
@@ -30,6 +39,7 @@ function Home()
         }
 
         setInfo(tmpInfo)
+        if (features.save) localStorage.setItem('@text-counter/text', text)
     }, [text])
 
     function handleTextChange(e: ChangeEvent<HTMLTextAreaElement>)
@@ -80,7 +90,7 @@ function Home()
                     </button>
                 </div>
             </div>
-            <textarea onChange={handleTextChange} name="textarea" className="textarea" ></textarea>
+            <textarea defaultValue={text} onChange={handleTextChange} name="textarea" className="textarea" ></textarea>
         </div>
     )
 }
