@@ -2,12 +2,13 @@ import React, { useState, ChangeEvent, useEffect } from 'react'
 import { FiCopy, FiMenu } from 'react-icons/fi'
 
 import './styles.css'
-import Options, {ShowInfo, defaultShowInfo} from '../../components/OptionsModal'
+import Options, {ShowInfo, defaultShowInfo, Features, defaultFeatures } from '../../components/OptionsModal'
 
 function Home()
 {
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
     const [showInfo, setShowInfo] = useState<ShowInfo>(defaultShowInfo)
+    const [features, setFeatures] = useState<Features>(defaultFeatures)
 
     const [text, setText] = useState<string>('')
     const [info, setInfo] = useState(

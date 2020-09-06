@@ -21,6 +21,18 @@ export const defaultShowInfo =
     letters: false
 }
 
+export interface Features
+{
+    suggestions: boolean
+    save: boolean
+}
+
+export const defaultFeatures =
+{
+    suggestions: true,
+    save: true
+}
+
 interface OptionsParams
 {
     isOpen: boolean
@@ -137,11 +149,11 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                 <ul>
                     <li>
                         <input type="checkbox" name="auto-correction" id="auto-correction"/>
-                        <span>Auto-correction</span>
+                        <span>Spelling suggestions (English)</span>
                     </li>
                     <li>
                         <input type="checkbox" name="save" id="save"/>
-                        <span>Save text until next visit</span>
+                        <span>Save text to next visit</span>
                     </li>
                 </ul>
             </div>
