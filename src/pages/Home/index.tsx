@@ -50,7 +50,14 @@ function Home()
 
     return (
         <div id="homeContainer">
-            <Options isOpen={isOptionsOpen} setIsOpen={setIsOptionsOpen} showInfo={showInfo} setShowInfo={setShowInfo} />
+            <Options
+                isOpen={isOptionsOpen}
+                setIsOpen={setIsOptionsOpen}
+                showInfo={showInfo}
+                setShowInfo={setShowInfo}
+                features={features}
+                setFeatures={setFeatures}
+            />
             <div className="infoButtonsContainer">
                 <div className="info">
                     {showInfo.words && <span className="showInfo">Words: {info.words}</span>}

@@ -39,9 +39,11 @@ interface OptionsParams
     setIsOpen: Function
     showInfo: ShowInfo
     setShowInfo: Function
+    features: Features
+    setFeatures: Function
 }
 
-const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowInfo}) =>
+const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowInfo, features, setFeatures}) =>
 {
     var tmpShowInfo: ShowInfo =
     {
@@ -50,8 +52,13 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
         paragraphs: showInfo.paragraphs,
         letters: showInfo.letters
     }
+    var tmpFeatures: Features =
+    {
+        suggestions: features.suggestions,
+        save: features.save
+    }
 
-    function handleShowInfoChange(e: ChangeEvent<HTMLInputElement>)
+    function handleChange(e: ChangeEvent<HTMLInputElement>)
     {
         const {name} = e.target
 
@@ -59,11 +66,14 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
         if (name === 'characters') tmpShowInfo['characters'] = !tmpShowInfo.characters
         if (name === 'paragraphs') tmpShowInfo['paragraphs'] = !tmpShowInfo.paragraphs
         if (name === 'letters') tmpShowInfo['letters'] = !tmpShowInfo.letters
+        if (name === 'suggestions') tmpFeatures['suggestions'] = !tmpFeatures.suggestions
+        if (name === 'save') tmpFeatures['save'] = !tmpFeatures.save
     }
 
     function handleApplyChanges()
     {
         setShowInfo(tmpShowInfo)
+        setFeatures(tmpFeatures)
         setIsOpen(false)
     }
 
@@ -106,7 +116,7 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                         <input
                             type="checkbox"
                             defaultChecked={tmpShowInfo.words}
-                            onChange={handleShowInfoChange}
+                            onChange={handleChange}
                             name="words" 
                             id="words"
                         />
@@ -116,7 +126,7 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                         <input
                             type="checkbox"
                             defaultChecked={tmpShowInfo.characters}
-                            onChange={handleShowInfoChange}
+                            onChange={handleChange}
                             name="characters"
                             id="characters"
                         />
@@ -126,7 +136,7 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                         <input
                             type="checkbox"
                             defaultChecked={tmpShowInfo.paragraphs}
-                            onChange={handleShowInfoChange}
+                            onChange={handleChange}
                             name="paragraphs"
                             id="paragraphs"
                         />
@@ -136,7 +146,7 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                         <input
                             type="checkbox"
                             defaultChecked={tmpShowInfo.letters}
-                            onChange={handleShowInfoChange}
+                            onChange={handleChange}
                             name="letters"
                             id="letters"
                         />
@@ -148,11 +158,23 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                 <label>Choose which features you want.</label>
                 <ul>
                     <li>
-                        <input type="checkbox" name="auto-correction" id="auto-correction"/>
+                        <input
+                            type="checkbox"
+                            defaultChecked={tmpFeatures.suggestions}
+                            onChange={handleChange}
+                            name="suggestions"
+                            id="suggestions"
+                        />
                         <span>Spelling suggestions (English)</span>
                     </li>
                     <li>
-                        <input type="checkbox" name="save" id="save"/>
+                        <input
+                            type="checkbox"
+                            defaultChecked={tmpFeatures.save}
+                            onChange={handleChange}
+                            name="save"
+                            id="save"
+                        />
                         <span>Save text to next visit</span>
                     </li>
                 </ul>
