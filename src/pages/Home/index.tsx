@@ -90,7 +90,12 @@ function Home()
                     </button>
                 </div>
             </div>
-            <textarea defaultValue={text} onChange={handleTextChange} name="textarea" className="textarea" ></textarea>
+            <textarea
+                defaultValue={text}
+                onChange={handleTextChange}
+                name="textarea"
+                className="textarea"
+            />
         </div>
     )
 }

@@ -157,7 +157,7 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
             <div className="options">
                 <label>Choose which features you want.</label>
                 <ul>
-                    <li>
+                    {/* <li>
                         <input
                             type="checkbox"
                             defaultChecked={tmpFeatures.suggestions}
@@ -166,7 +166,7 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                             id="suggestions"
                         />
                         <span>Spelling suggestions (English)</span>
-                    </li>
+                    </li> */}
                     <li>
                         <input
                             type="checkbox"
