@@ -1,14 +1,37 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import Switch from 'react-switch'
+import { FiSun, FiMoon } from 'react-icons/fi'
 
 import logoDark from '../../assets/logo-dark.svg'
 
 import './styles.css'
+import changeTheme from '../../utils/changeTheme'
 
 function MenuTabs()
 {
     const [isDark, setIsDark] = useState(false)
+
+    useEffect(() =>
+    {
+        const theme = localStorage.getItem('@text-counter/theme')
+        if (theme === 'dark')
+        {
+            changeTheme('dark')
+            setIsDark(true)
+        }
+        else if (theme === 'light')
+        {
+            changeTheme('light')
+            setIsDark(false)
+        }
+        else
+        {
+            localStorage.setItem('@text-counter/theme', 'light')
+            changeTheme('light')
+            setIsDark(false)
+        }
+    }, [])
 
     async function handleChangeTheme()
     {
@@ -17,23 +40,13 @@ function MenuTabs()
         if (!isDark) // dark theme
         {
             localStorage.setItem('@text-counter/theme', 'dark')
-            document.documentElement.style.setProperty('--primary', '#282a36')
-            document.documentElement.style.setProperty('--secondary', '#44475a')
-            document.documentElement.style.setProperty('--secondary-strong', '#6272a4')
-            document.documentElement.style.setProperty('--text', '#f8f8f2')
-            document.documentElement.style.setProperty('--textarea', '#bd93f9')
-            document.documentElement.style.setProperty('--textarea-focus', '#ff79c6')
+            changeTheme('dark')
         }
 
         if (isDark) // light theme
         {
             localStorage.setItem('@text-counter/theme', 'light')
-            document.documentElement.style.setProperty('--primary', '#f5f5f5')
-            document.documentElement.style.setProperty('--secondary', '#44475a')
-            document.documentElement.style.setProperty('--secondary-strong', '#6272a4')
-            document.documentElement.style.setProperty('--text', '#44475a')
-            document.documentElement.style.setProperty('--textarea', '#bd93f9')
-            document.documentElement.style.setProperty('--textarea-focus', '#ff79c6')
+            changeTheme('light')
         }
     }
 
@@ -47,6 +60,14 @@ function MenuTabs()
                 <Switch
                     checked={isDark}
                     onChange={handleChangeTheme}
+                    offColor="#ffe4ad"
+                    offHandleColor="#ffad05"
+                    uncheckedIcon={<div style={{color: "#ffad05"}} className="themeIcon"><FiSun/></div>}
+                    onColor="#44475a"
+                    onHandleColor="#6272a4"
+                    checkedIcon={<div style={{color: "#6272a4"}} className="themeIcon"><FiMoon/></div>}
+                    height={30}
+                    width={65}
                 />
                 <Link to="/about" className="about">
                     <span>About</span>
