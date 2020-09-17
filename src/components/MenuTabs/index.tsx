@@ -4,6 +4,7 @@ import Switch from 'react-switch'
 import { FiSun, FiMoon } from 'react-icons/fi'
 
 import logoDark from '../../assets/logo-dark.svg'
+import logoLight from '../../assets/logo-light.svg'
 
 import './styles.css'
 import changeTheme from '../../utils/changeTheme'
@@ -53,7 +54,7 @@ function MenuTabs()
     return (
         <div id="tabsContainer">
             <Link to="/" className="logo">
-                <img src={logoDark} alt="robot"/>
+                {isDark ? <img src={logoDark} alt="robot"/> : <img src={logoLight} alt="robot"/>}
                 <span>Text Counter</span>
             </Link>
             <div className="buttons">

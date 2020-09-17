@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import logoDark from '../../assets/logo-dark.svg'
+import logoLight from '../../assets/logo-light.svg'
 import creator from '../../assets/creator.jpg'
 
 import './styles.css'
 
 function About()
 {
+    const [isDark, setIsDark] = useState(false)
+
+    useEffect(() =>
+    {
+        const theme = localStorage.getItem('@text-counter/theme')
+        if (theme === 'dark') setIsDark(true)
+        else if (theme === 'light') setIsDark(false)
+    }, [localStorage.getItem('@text-counter/theme')])
+
     return (
         <div id="aboutContainer">
             <div className="greetings">
@@ -16,7 +26,7 @@ function About()
             <div className="card">
                 <h2>Who am I?</h2>
                 <ul>
-                    <img src={logoDark} alt="robot"/>
+                    {isDark ? <img src={logoDark} alt="robot"/> : <img src={logoLight} alt="robot"/>}
                     <p>My name is Text Counter and I can help you count your text (who would’ve guessed, right?).<br/><br/>You can use me as a simple counter of words and characters or you can enable some of my show options and features. It’s your choice!</p>
                 </ul>
             </div>
