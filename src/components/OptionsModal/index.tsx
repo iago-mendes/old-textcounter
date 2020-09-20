@@ -100,7 +100,8 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'space-between'
+                    justifyContent: 'space-between',
+                    gap: 15
                 }
             }}
             id="optionsContainer"
@@ -157,16 +158,6 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
             <div className="options">
                 <label>Choose which features you want.</label>
                 <ul>
-                    {/* <li>
-                        <input
-                            type="checkbox"
-                            defaultChecked={tmpFeatures.suggestions}
-                            onChange={handleChange}
-                            name="suggestions"
-                            id="suggestions"
-                        />
-                        <span>Spelling suggestions (English)</span>
-                    </li> */}
                     <li>
                         <input
                             type="checkbox"
