@@ -6,17 +6,13 @@ import creator from '../../assets/creator.jpg'
 
 import './styles.css'
 
-function About()
+interface AboutParams
 {
-    const [isDark, setIsDark] = useState(false)
+    isDark: boolean
+}
 
-    useEffect(() =>
-    {
-        const theme = localStorage.getItem('@text-counter/theme')
-        if (theme === 'dark') setIsDark(true)
-        else if (theme === 'light') setIsDark(false)
-    }, [localStorage.getItem('@text-counter/theme')])
-
+const About: React.FC<AboutParams> = ({isDark}) =>
+{
     return (
         <div id="aboutContainer">
             <div className="greetings">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {BrowserRouter, Route} from 'react-router-dom'
 
 import './styles.css'
@@ -8,12 +8,13 @@ import About from './pages/About'
 
 function Routes()
 {
+    const [isDark, setIsDark] = useState(false)
     return (
         <>
             <BrowserRouter>
-                <MenuTabs />
+                <MenuTabs isDark={isDark} setIsDark={setIsDark} />
                 <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
+                <Route path="/about" component={() => <About isDark={isDark} />} />
             </BrowserRouter>
         </>
     )

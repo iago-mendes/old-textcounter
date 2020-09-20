@@ -9,10 +9,14 @@ import logoLight from '../../assets/logo-light.svg'
 import './styles.css'
 import changeTheme from '../../utils/changeTheme'
 
-function MenuTabs()
+interface MenuTabsParams
 {
-    const [isDark, setIsDark] = useState(false)
+    isDark: boolean
+    setIsDark: Function
+}
 
+const MenuTabs: React.FC<MenuTabsParams> = ({isDark, setIsDark}) =>
+{
     useEffect(() =>
     {
         const theme = localStorage.getItem('@text-counter/theme')
@@ -37,6 +41,7 @@ function MenuTabs()
     async function handleChangeTheme()
     {
         await setIsDark(!isDark)
+        console.log('tabs', !isDark)
         
         if (!isDark) // dark theme
         {
