@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import logoDark from '../../assets/logo-dark.svg'
 import logoLight from '../../assets/logo-light.svg'
@@ -29,7 +29,7 @@ const About: React.FC<AboutParams> = ({isDark}) =>
             <div className="card">
                 <h2>Who is my creator?</h2>
                 <ul>
-                    <p>I was developed by Iago Mendes, who is a college student passionate about coding. You can see more info about him in his <a href="https://github.com/iago-mendes" target="_blank">GitHub</a> and <a href="https://www.linkedin.com/in/iago-mendes-21a2361a2" target="_blank">LinkedIn</a> accounts.<br/><br/>He also made me an open-source application, so you can see my repository <a href="https://github.com/iago-mendes/textcounter" target="_blank">here</a>.</p>
+                    <p>I was developed by Iago Mendes, who is a college student passionate about coding. You can see more info about him in his <a href="https://github.com/iago-mendes" target="_blank" rel="noopener noreferrer">GitHub</a> and <a href="https://www.linkedin.com/in/iago-mendes-21a2361a2" target="_blank" rel="noopener noreferrer">LinkedIn</a> accounts.<br/><br/>He also made me an open-source application, so you can see my repository <a href="https://github.com/iago-mendes/textcounter" target="_blank" rel="noopener noreferrer">here</a>.</p>
                     <img src={creator} alt="creator" style={{borderRadius: 175}} />
                 </ul>
             </div>

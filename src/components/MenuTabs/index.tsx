@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import Switch from 'react-switch'
 import { FiSun, FiMoon } from 'react-icons/fi'
@@ -36,12 +36,11 @@ const MenuTabs: React.FC<MenuTabsParams> = ({isDark, setIsDark}) =>
             changeTheme('light')
             setIsDark(false)
         }
-    }, [])
+    }, [setIsDark])
 
     async function handleChangeTheme()
     {
         await setIsDark(!isDark)
-        console.log('tabs', !isDark)
         
         if (!isDark) // dark theme
         {

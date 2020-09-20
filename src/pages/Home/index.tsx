@@ -25,7 +25,7 @@ function Home()
             const tmp = String(localStorage.getItem('@text-counter/text'))
             setText(tmp)
         }
-    }, [])
+    }, [features.save])
 
     useEffect(() => // update text
     {
@@ -40,7 +40,7 @@ function Home()
 
         setInfo(tmpInfo)
         if (features.save) localStorage.setItem('@text-counter/text', text)
-    }, [text])
+    }, [text, features.save])
 
     function handleTextChange(e: ChangeEvent<HTMLTextAreaElement>)
     {
