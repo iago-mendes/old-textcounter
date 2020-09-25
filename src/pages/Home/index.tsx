@@ -3,10 +3,12 @@ import { FiCopy, FiMenu } from 'react-icons/fi'
 
 import './styles.css'
 import Options, {ShowInfo, defaultShowInfo, Features, defaultFeatures } from '../../components/OptionsModal'
+import LetterDensity from '../../components/LetterDensityModal'
 
 function Home()
 {
     const [isOptionsOpen, setIsOptionsOpen] = useState(false)
+    const [isLettersOpen, setIsLettersOpen] = useState(false)
     const [showInfo, setShowInfo] = useState<ShowInfo>(defaultShowInfo)
     const [features, setFeatures] = useState<Features>(defaultFeatures)
 
@@ -17,6 +19,7 @@ function Home()
         characters: 0,
         paragraphs: 0
     })
+
 
     useEffect(() => // collect saved text
     {
@@ -68,13 +71,20 @@ function Home()
                 features={features}
                 setFeatures={setFeatures}
             />
+            <LetterDensity isOpen={isLettersOpen} setIsOpen={setIsLettersOpen} />
             <div className="infoButtonsContainer">
                 <div className="info">
                     {showInfo.words && <span className="showInfo">Words: {info.words}</span>}
                     {showInfo.characters && <span className="showInfo">Characters: {info.characters}</span>}
                     {showInfo.paragraphs && <span className="showInfo">Paragraphs: {info.paragraphs}</span>}
                     {showInfo.letters && <div className="lettersContainer">
-                        <button title="See letter density" className="letters">Letter Density</button>
+                        <button
+                            onClick={() => setIsLettersOpen(!isLettersOpen)}
+                            title="See letter density"
+                            className="letters"
+                        >
+                            Letter Density
+                        </button>
                     </div>}
                 </div>
                 <div className="buttons">
