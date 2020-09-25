@@ -71,7 +71,7 @@ function Home()
                 features={features}
                 setFeatures={setFeatures}
             />
-            <LetterDensity isOpen={isLettersOpen} setIsOpen={setIsLettersOpen} />
+            <LetterDensity isOpen={isLettersOpen} setIsOpen={setIsLettersOpen} text={text} />
             <div className="infoButtonsContainer">
                 <div className="info">
                     {showInfo.words && <span className="showInfo">Words: {info.words}</span>}
