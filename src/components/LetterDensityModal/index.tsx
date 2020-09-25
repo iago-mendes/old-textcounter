@@ -48,9 +48,34 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen}) =>
     return (
         <Modal
             isOpen={isOpen}
+            style=
+            {{
+                overlay:
+                {
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)'
+                },
+                content:
+                {
+                    height: '75vh',
+                    width: '75vh',
+                    top: '12.5vh',
+                    left: 'calc((100vw - 75vh) / 2)',
+                    border: '1px solid var(--text)',
+                    background: 'var(--secondary)',
+                    borderRadius: '2.5rem',
+                    padding: '3rem',
+
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 15
+                }
+            }}
+            id="lettersContainer"
         >
             <p>LetterDensity</p>
-            <button onClick={() => setIsOpen(false)}>Close</button>
+            <button onClick={() => setIsOpen(false)} className="closeButton">Close</button>
         </Modal>
     )
 }
