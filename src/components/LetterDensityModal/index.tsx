@@ -113,17 +113,17 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
             id="lettersContainer"
         >
             <h1>Letter Density</h1>
-            <div className="info">
+            <ul>
                 {alfabet.map(letter =>
                 {
                     if (letters[letter].number !== 0) return (
-                        <div key={letter} className="letterInfo">
-                            <label className="letter">{letter}</label>
+                        <li key={letter} className="letterInfo">
+                            <label className="letter">{letter.toUpperCase()} &rarr; </label>
                             <label className="quantity">{letters[letter].number} ({letters[letter].percentage}%)</label>
-                        </div>
+                        </li>
                     )
                 })}
-            </div>
+            </ul>
             <button onClick={() => setIsOpen(false)} className="closeButton">Close</button>
         </Modal>
     )

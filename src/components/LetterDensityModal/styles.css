@@ -5,6 +5,36 @@
     font-size: 2.5rem;
 }
 
+#lettersContainer ul
+{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 5em;
+    -moz-column-gap: 5em;
+    column-gap: 5em;
+
+    list-style: none;
+}
+
+#lettersContainer ul li
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 15rem;
+}
+
+#lettersContainer ul li label
+{
+    font-family: Ubuntu;
+    color: var(--text);
+    font-size: 1.75rem;
+
+    cursor: text;
+}
+
 #lettersContainer button
 {
     height: 5rem;
