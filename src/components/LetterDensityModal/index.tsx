@@ -7,37 +7,37 @@ Modal.setAppElement('#root')
 
 export interface Letters
 {
-    [letter: string]: number
+    [letter: string]: {number: number, percentage: number}
 }
 
 const defaultLetters =
 {
-    a: 0,
-    b: 0,
-    c: 0,
-    d: 0,
-    e: 0,
-    f: 0,
-    g: 0,
-    h: 0,
-    i: 0,
-    j: 0,
-    k: 0,
-    l: 0,
-    m: 0,
-    n: 0,
-    o: 0,
-    p: 0,
-    q: 0,
-    r: 0,
-    s: 0,
-    t: 0,
-    u: 0,
-    v: 0,
-    w: 0,
-    x: 0,
-    y: 0,
-    z: 0
+    a: {number: 0, percentage: 0},
+    b: {number: 0, percentage: 0},
+    c: {number: 0, percentage: 0},
+    d: {number: 0, percentage: 0},
+    e: {number: 0, percentage: 0},
+    f: {number: 0, percentage: 0},
+    g: {number: 0, percentage: 0},
+    h: {number: 0, percentage: 0},
+    i: {number: 0, percentage: 0},
+    j: {number: 0, percentage: 0},
+    k: {number: 0, percentage: 0},
+    l: {number: 0, percentage: 0},
+    m: {number: 0, percentage: 0},
+    n: {number: 0, percentage: 0},
+    o: {number: 0, percentage: 0},
+    p: {number: 0, percentage: 0},
+    q: {number: 0, percentage: 0},
+    r: {number: 0, percentage: 0},
+    s: {number: 0, percentage: 0},
+    t: {number: 0, percentage: 0},
+    u: {number: 0, percentage: 0},
+    v: {number: 0, percentage: 0},
+    w: {number: 0, percentage: 0},
+    x: {number: 0, percentage: 0},
+    y: {number: 0, percentage: 0},
+    z: {number: 0, percentage: 0}
 }
 
 interface LetterDensityParams
@@ -61,14 +61,14 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
         let tmpLetters: Letters = {}
         let length = 0
 
-        alfabet.map(letter => tmpLetters[letter] = 0)
+        alfabet.map(letter => tmpLetters[letter] = {number: 0, percentage: 0})
         
         characters.map(char =>
         {
             if (alfabet.includes(char))
             {
                 length += 1
-                tmpLetters[char] += 1
+                tmpLetters[char].number += 1
             }
         })
         
@@ -76,7 +76,7 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
         {
             for (let [letter, quantity] of Object.entries(tmpLetters))
             {
-                tmpLetters[letter] = Number((quantity/length*100).toFixed(2))
+                tmpLetters[letter].percentage = Number((quantity.number/length*100).toFixed(2))
             }
             setLetters(tmpLetters)
         }
@@ -112,12 +112,15 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
             }}
             id="lettersContainer"
         >
-            <h1>LetterDensity</h1>
-            <div>
+            <h1>Letter Density</h1>
+            <div className="info">
                 {alfabet.map(letter =>
                 {
-                    if (letters[letter] !== 0) return (
-                        <p key={letter}>{letter}: {letters[letter]}%</p>
+                    if (letters[letter].number !== 0) return (
+                        <div key={letter} className="letterInfo">
+                            <label className="letter">{letter}</label>
+                            <label className="quantity">{letters[letter].number} ({letters[letter].percentage}%)</label>
+                        </div>
                     )
                 })}
             </div>

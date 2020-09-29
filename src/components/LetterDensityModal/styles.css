@@ -1,0 +1,28 @@
+#lettersContainer h1
+{
+    font-family: Ubuntu;
+    color: var(--text);
+    font-size: 2.5rem;
+}
+
+#lettersContainer button
+{
+    height: 5rem;
+    width: 11rem;
+    border: none;
+    border-radius: 2rem;
+
+    background-color: var(--secondary-strong);
+    color: var(--primary);
+    font-family: Ubuntu;
+    font-size: 2.5rem;
+
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#lettersContainer button:hover
+{
+    background-color: var(--primary);
+    color: var(--secondary-strong);
+}
