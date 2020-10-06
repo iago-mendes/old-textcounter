@@ -102,7 +102,7 @@ function Home()
                 </div>
             </div>
             <textarea
-                defaultValue={text}
+                value={text}
                 onChange={handleTextChange}
                 name="textarea"
                 className="textarea"
