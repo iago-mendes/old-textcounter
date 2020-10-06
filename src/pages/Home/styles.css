@@ -159,6 +159,10 @@
     color: var(--secondary-strong)
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 /* textarea::-webkit-resizer
 {
     margin-right: 2rem;
