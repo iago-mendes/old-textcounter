@@ -82,7 +82,7 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
             setLetters(tmpLetters)
         }
         else setLetters(defaultLetters)
-    }, [text, alfabet])
+    }, [text])
 
     return (
         <Modal
