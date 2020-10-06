@@ -1,6 +1,6 @@
 export default function changeTheme(theme: string)
 {
-    const favicon = (<HTMLLinkElement>document.getElementById('favicon'))
+    const favicon = (document.getElementById('favicon') as HTMLLinkElement)
     if (theme === 'dark')
     {
         if (favicon !== null) favicon.href = "dark-logo.png"

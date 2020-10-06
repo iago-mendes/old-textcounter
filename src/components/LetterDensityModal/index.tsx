@@ -70,6 +70,7 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
                 length += 1
                 tmpLetters[char].number += 1
             }
+            return 'fix warning'
         })
         
         if (length !== 0)
@@ -81,7 +82,7 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
             setLetters(tmpLetters)
         }
         else setLetters(defaultLetters)
-    }, [text])
+    }, [text, alfabet])
 
     return (
         <Modal
@@ -122,6 +123,7 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
                             <label className="quantity">{letters[letter].number} ({letters[letter].percentage}%)</label>
                         </li>
                     )
+                    else return null
                 })}
             </ul>
             <button onClick={() => setIsOpen(false)} className="closeButton">Close</button>
