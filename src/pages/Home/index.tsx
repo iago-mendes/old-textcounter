@@ -106,6 +106,7 @@ function Home()
                 onChange={handleTextChange}
                 name="textarea"
                 className="textarea"
+                placeholder="Type your text here"
             />
         </div>
     )
