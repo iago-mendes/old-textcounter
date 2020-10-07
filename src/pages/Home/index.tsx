@@ -26,7 +26,7 @@ function Home()
         if (features.save)
         {
             const tmp = String(localStorage.getItem('@text-counter/text'))
-            if(tmp !== null) setText(tmp)
+            if(tmp !== 'null') setText(tmp)
             else setText('')
         }
     }, [features.save])
