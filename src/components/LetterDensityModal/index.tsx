@@ -57,6 +57,11 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
 
     useEffect(() =>
     {
+        const alfabet =
+        [
+            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+        ]
+
         const characters = text.toLowerCase().split('')
         let tmpLetters: Letters = {}
         let length = 0

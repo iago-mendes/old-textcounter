@@ -36,8 +36,6 @@ function Home()
         const getWords = text.length === 0 ? [] : text
             .split('\n').join(' ').split(' ')
             .filter(item => {return item !== ''})
-        console.log('[text] ->', text)
-        console.log('[getWords] ->',getWords)
         const getParagraphs = text.split('\n').filter(item => {return item !== ''})
         const tmpInfo =
         {
