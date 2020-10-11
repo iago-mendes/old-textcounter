@@ -29,7 +29,7 @@ export interface Features
 
 export const defaultFeatures =
 {
-    suggestions: true,
+    suggestions: false,
     save: true
 }
 
@@ -72,6 +72,17 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
 
     function handleApplyChanges()
     {
+        let savedOptions = ''
+        for (let [key, value] of Object.entries(tmpShowInfo))
+        {
+            if (value === true) savedOptions += `,${key}`
+        }
+        for (let [key, value] of Object.entries(tmpFeatures))
+        {
+            if (value === true) savedOptions += `,${key}`
+        }
+        localStorage.setItem('@text-counter/options', savedOptions)
+
         setShowInfo(tmpShowInfo)
         setFeatures(tmpFeatures)
         setIsOpen(false)

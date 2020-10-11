@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useState, ChangeEvent, useEffect } from 'react'
 import { FiCopy, FiMenu } from 'react-icons/fi'
 
@@ -20,6 +21,37 @@ function Home()
         paragraphs: 0
     })
 
+    useEffect(() => // collect saved options
+    {        
+        const savedOptions = localStorage.getItem('@text-counter/options')
+        if (savedOptions)
+        {
+            const options = savedOptions.split(',')
+            let tmpShowInfo: ShowInfo =
+            {
+                words: false,
+                characters: false,
+                paragraphs: false,
+                letters: false
+            }
+            let tmpFeatures: Features =
+            {
+                suggestions: false,
+                save: false
+            }
+            options.map(option =>
+            {
+                if (option === 'words') tmpShowInfo.words = true
+                if (option === 'characters') tmpShowInfo.characters = true
+                if (option === 'paragraphs') tmpShowInfo.paragraphs = true
+                if (option === 'letters') tmpShowInfo.letters = true
+                if (option === 'save') tmpFeatures.save = true
+                return 'fix warning'
+            })
+            setShowInfo(tmpShowInfo)
+            setFeatures(tmpFeatures)
+        }
+    }, [])
 
     useEffect(() => // collect saved text
     {
