@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
 import Switch from 'react-switch'
 import { FiSun, FiMoon } from 'react-icons/fi'
@@ -17,6 +17,8 @@ interface MenuTabsParams
 
 const MenuTabs: React.FC<MenuTabsParams> = ({isDark, setIsDark}) =>
 {
+    const [width, setWidth] = useState(1000)
+    
     useEffect(() =>
     {
         const theme = localStorage.getItem('@text-counter/theme')
@@ -36,7 +38,14 @@ const MenuTabs: React.FC<MenuTabsParams> = ({isDark, setIsDark}) =>
             changeTheme('light')
             setIsDark(false)
         }
+        setWidth(window.outerWidth)
     }, [setIsDark])
+
+    window.addEventListener('resize', handleResize)
+    function handleResize()
+    {
+        setWidth(window.outerWidth)
+    }
 
     async function handleChangeTheme()
     {
