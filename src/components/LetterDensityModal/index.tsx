@@ -40,6 +40,56 @@ const defaultLetters =
     z: {number: 0, percentage: 0}
 }
 
+const desktopStyle: Modal.Styles =
+{
+    overlay:
+    {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+    content:
+    {
+        height: '75vh',
+        width: '75vh',
+        top: '12.5vh',
+        left: 'calc((100vw - 75vh) / 2)',
+        border: '1px solid var(--text)',
+        background: 'var(--secondary)',
+        borderRadius: '2.5rem',
+        padding: '3rem',
+
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 15,
+    }
+}
+
+const mobileStyle: Modal.Styles =
+{
+    overlay:
+    {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+    content:
+    {
+        height: '75vh',
+        width: '75vw',
+        top: '12.5vh',
+        left: 'calc((100vw - 75vw) / 2)',
+        border: '1px solid var(--text)',
+        background: 'var(--secondary)',
+        borderRadius: '2.5rem',
+        padding: '1rem',
+
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 15,
+    }
+}
+
 interface LetterDensityParams
 {
     isOpen: boolean
@@ -54,6 +104,10 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
     [
         'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
     ]
+
+    const [width, setWidth] = useState(1000)
+    useEffect(() => setWidth(window.outerWidth), [])
+    window.addEventListener('resize', () => setWidth(window.outerWidth))
 
     useEffect(() =>
     {
@@ -92,30 +146,7 @@ const LetterDensity: React.FC<LetterDensityParams> = ({isOpen, setIsOpen, text})
     return (
         <Modal
             isOpen={isOpen}
-            style=
-            {{
-                overlay:
-                {
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-                },
-                content:
-                {
-                    height: '75vh',
-                    width: '75vh',
-                    top: '12.5vh',
-                    left: 'calc((100vw - 75vh) / 2)',
-                    border: '1px solid var(--text)',
-                    background: 'var(--secondary)',
-                    borderRadius: '2.5rem',
-                    padding: '3rem',
-
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: 15
-                }
-            }}
+            style = {width > 700 ? desktopStyle : mobileStyle}
             id="lettersContainer"
         >
             <h1>Letter Density</h1>
