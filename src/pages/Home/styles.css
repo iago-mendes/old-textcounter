@@ -163,8 +163,34 @@
     display: none;
 }
 
-/* textarea::-webkit-resizer
+@media (max-width: 700px)
 {
-    margin-right: 2rem;
-    margin-bottom: 2rem;
-} */
+    #homeContainer .infoButtonsContainer
+    {
+        width: 100%;
+        flex-direction: column;
+
+        gap: 2rem;
+    }
+
+    #homeContainer .info
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+    }
+
+    #homeContainer .info .showInfo
+    {
+        width: 20rem;
+    }
+
+    #homeContainer .buttons
+    {
+        width: 100%;
+        justify-content: space-around;
+    }
+}
