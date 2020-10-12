@@ -45,6 +45,9 @@
     background-color: var(--primary);
 
     margin-top: -4rem;
+
+    text-align: center;
+    width: fit-content;
 }
 
 #aboutContainer .card ul
@@ -57,13 +60,14 @@
 
 #aboutContainer .card ul img
 {
-    width: 35rem;
-    height: 35rem;
+    width: 25vw;
+    height: 25vw;
 }
 
 #aboutContainer .card ul p
 {
     width: 50%;
+    padding: 2rem;
 }
 
 #aboutContainer .card ul p a
@@ -77,4 +81,40 @@
 {
     text-shadow: 0px 0px 10px var(--secondary);
     font-size: 2.75rem;
+}
+
+@media (max-width: 1000px)
+{
+    #aboutContainer .greetings
+    {
+        width: 80%;
+    }
+
+    #aboutContainer .card
+    {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    #aboutContainer .card h2
+    {
+        font-size: 3rem;
+
+        width: 17rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+
+        margin-top: -3rem;
+        margin-bottom: 1rem;
+    }
+
+    #aboutContainer .card ul
+    {
+        flex-direction: column;
+    }
+
+    #aboutContainer .card ul p
+    {
+        width: 100%;
+    }
 }
