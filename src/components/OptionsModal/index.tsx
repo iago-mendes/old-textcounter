@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import Modal from 'react-modal'
 
 import './styles.css'
@@ -33,6 +33,56 @@ export const defaultFeatures =
     save: true
 }
 
+const desktopStyle: Modal.Styles =
+{
+    overlay:
+    {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+    content:
+    {
+        height: '75vh',
+        width: '75vh',
+        top: '12.5vh',
+        left: 'calc((100vw - 75vh) / 2)',
+        border: '1px solid var(--text)',
+        background: 'var(--secondary)',
+        borderRadius: '2.5rem',
+        padding: '3rem',
+
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 15,
+    }
+}
+
+const mobileStyle: Modal.Styles =
+{
+    overlay:
+    {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)'
+    },
+    content:
+    {
+        height: '75vh',
+        width: '75vw',
+        top: '12.5vh',
+        left: 'calc((100vw - 75vw) / 2)',
+        border: '1px solid var(--text)',
+        background: 'var(--secondary)',
+        borderRadius: '2.5rem',
+        padding: '3rem',
+
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: 15,
+    }
+}
+
 interface OptionsParams
 {
     isOpen: boolean
@@ -57,6 +107,10 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
         suggestions: features.suggestions,
         save: features.save
     }
+
+    const [width, setWidth] = useState(1000)
+    useEffect(() => setWidth(window.outerWidth), [])
+    window.addEventListener('resize', () => setWidth(window.outerWidth))
 
     function handleChange(e: ChangeEvent<HTMLInputElement>)
     {
@@ -90,31 +144,8 @@ const Options: React.FC<OptionsParams> = ({isOpen, setIsOpen, showInfo, setShowI
 
     return (
         <Modal
-            isOpen={isOpen}
-            style=
-            {{
-                overlay:
-                {
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)'
-                },
-                content:
-                {
-                    height: '75vh',
-                    width: '75vh',
-                    top: '12.5vh',
-                    left: 'calc((100vw - 75vh) / 2)',
-                    border: '1px solid var(--text)',
-                    background: 'var(--secondary)',
-                    borderRadius: '2.5rem',
-                    padding: '3rem',
-
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    gap: 15
-                }
-            }}
+            isOpen = {isOpen}
+            style = {width > 700 ? desktopStyle : mobileStyle}
             id="optionsContainer"
         >
             <div className="options">
